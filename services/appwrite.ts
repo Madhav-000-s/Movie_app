@@ -40,18 +40,21 @@ export const updateSearchCount = async (query: string, movie: Movie) => {
   }
 };
 
-export const getTrendingMovies = async (): Promise<
-  TrendingMovie[] | undefined
-> => {
+export const getTrendingMovies = async (): Promise<TrendingMovie[] | undefined> => {
   try {
     const result = await database.listDocuments(DATABASE_ID, COLLECTION_ID, [
-      Query.limit(5),
+      Query.limit(20),
       Query.orderDesc("count"),
     ]);
 
-    return result.documents as unknown as TrendingMovie[];
+    // Remove duplicates by title
+    const uniqueMovies : any = result.documents.filter((movie: any, index: number, self: any[]) => 
+      index === self.findIndex(m => m.title === movie.title)
+    );
+
+    return uniqueMovies.slice(0, 5) as TrendingMovie[];
   } catch (error) {
-    console.error(error);
+    console.error('Failed to fetch trending movies:', error);
     return undefined;
   }
 };
