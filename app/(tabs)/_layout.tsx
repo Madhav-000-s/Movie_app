@@ -48,12 +48,12 @@ const _layout = () => {
         <Tabs.Screen name="index" options={{ headerShown: false ,title:"",tabBarIcon:({focused})=>(
          <TabIcon focused={focused} icon={icons.home} title="home"></TabIcon>
         )}} />
-        <Tabs.Screen name="profile" options={{ headerShown: false,tabBarIcon:({focused})=>(
-         <TabIcon focused={focused} icon={icons.person} title="profile"></TabIcon> )}} />
+        {/* <Tabs.Screen name="profile" options={{ headerShown: false,tabBarIcon:({focused})=>(
+         <TabIcon focused={focused} icon={icons.person} title="profile"></TabIcon> )}} /> */}
         <Tabs.Screen name="search" options={{ headerShown: false,tabBarIcon:({focused})=>(
           <TabIcon focused={focused} icon={icons.search} title="search"></TabIcon> )}} />
-        <Tabs.Screen name="saved" options={{ headerShown: false,tabBarIcon:({focused})=>(
-          <TabIcon focused={focused} icon={icons.save} title="saved"></TabIcon>) }} />
+        {/* <Tabs.Screen name="saved" options={{ headerShown: false,tabBarIcon:({focused})=>(
+          <TabIcon focused={focused} icon={icons.save} title="saved"></TabIcon>) }} /> */}
     </Tabs>
   )
 }
